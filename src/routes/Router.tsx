@@ -4,7 +4,7 @@ import { StickyNavbar } from '../views/molecules/Navbar';
 
 const Router = createBrowserRouter([
   {
-    path: '/',
+    path: '/movie',
     element: <StickyNavbar />,
     children: [
       {
