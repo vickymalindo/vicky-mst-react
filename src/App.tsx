@@ -1,5 +1,7 @@
+import Button from './views/atoms/Button';
+
 function App() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  return <Button text="Button" />;
 }
 
 export default App;
