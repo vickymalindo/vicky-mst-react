@@ -20,3 +20,11 @@ export const fetchMovie = async (page: number) => {
 
   return result;
 };
+
+export const detailMovie = async (id: string | undefined) => {
+  const res = await fetch(`https://www.omdbapi.com/?apikey=bb24b95d&i=${id}`);
+  const temp = await res.json();
+  const price = generateRandomNumber(100000, 1000000);
+  const data = { price, ...temp };
+  return data;
+};

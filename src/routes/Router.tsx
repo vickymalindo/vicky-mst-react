@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Home from '../pages/Home';
 import { StickyNavbar } from '../views/molecules/Navbar';
 import Index from '../pages/Index';
+import Movie from '../pages/Movie';
 
 const Router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const Router = createBrowserRouter([
       {
         path: 'home',
         element: <Home />,
+      },
+      {
+        path: 'detail/:id',
+        element: <Movie />,
       },
     ],
   },

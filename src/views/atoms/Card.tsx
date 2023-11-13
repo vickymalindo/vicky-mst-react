@@ -11,9 +11,11 @@ import { useQuery } from 'react-query';
 import { fetchMovie } from '../../api/Movie';
 import Loader from './Loader';
 import Error from './Error';
+import { useNavigate } from 'react-router-dom';
 
 export function CardDefault() {
   const count = useAppSelector((state) => state.counter.value);
+  const navigate = useNavigate();
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ['getMovie', { count }],
@@ -29,7 +31,7 @@ export function CardDefault() {
   if (isError) {
     return <Error />;
   }
-  console.log(data);
+
   return (
     <>
       {data?.map((val) => {
@@ -60,7 +62,10 @@ export function CardDefault() {
               </Typography>
             </CardBody>
             <CardFooter className="pt-0">
-              <Button className="px-1.5 py-2.5 sm:px-2 sm:py-4 md:px-3 md:py-5">
+              <Button
+                className="px-1.5 py-2.5 sm:px-2 sm:py-4 md:px-3 md:py-5"
+                onClick={() => navigate(`/movie/detail/${val.imdbID}`)}
+              >
                 Read More
               </Button>
             </CardFooter>
