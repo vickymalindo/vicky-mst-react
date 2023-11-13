@@ -9,6 +9,8 @@ import {
 import { useAppSelector } from '../../redux/store';
 import { useQuery } from 'react-query';
 import { fetchMovie } from '../../api/Movie';
+import Loader from './Loader';
+import Error from './Error';
 
 export function CardDefault() {
   const count = useAppSelector((state) => state.counter.value);
@@ -21,11 +23,11 @@ export function CardDefault() {
   });
 
   if (isLoading) {
-    return <section className="text-center w-full">Loading....</section>;
+    return <Loader />;
   }
 
   if (isError) {
-    return <section>Error...</section>;
+    return <Error />;
   }
   console.log(data);
   return (
