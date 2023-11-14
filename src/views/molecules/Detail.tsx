@@ -1,11 +1,9 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-// import { detailMovie } from '../../api/Movie';
-// import { useQuery } from 'react-query';
 import Loader from '../atoms/Loader';
 import { Button, Typography } from '@material-tailwind/react';
 import { useAppDispatch } from '../../redux/store';
-import { increment } from '../../redux/features/cartSlice';
+import { handleChange } from '../../redux/features/cartSlice';
 
 const Detail = () => {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -24,10 +22,8 @@ const Detail = () => {
       const parseCart = JSON.parse(getCartStorage);
       const insertCart = [...parseCart, data];
       localStorage.setItem('cart', JSON.stringify(insertCart));
-      console.log(insertCart);
     }
-    dispatch(increment());
-    console.log(getCartStorage);
+    dispatch(handleChange());
   };
 
   React.useEffect(() => {

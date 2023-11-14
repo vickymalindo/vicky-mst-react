@@ -19,10 +19,8 @@ export function StickyNavbar() {
   React.useEffect(() => {
     if (getCartStorage !== null) {
       const parseCart = JSON.parse(getCartStorage!);
-      console.log(parseCart);
       const lengthCard = parseCart.length;
       setItem(lengthCard);
-      console.log(lengthCard);
     }
   }, [count]);
 

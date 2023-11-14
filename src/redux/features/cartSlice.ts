@@ -1,25 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 interface ToggleState {
-  value: number;
+  value: boolean;
 }
 
 const initialState: ToggleState = {
-  value: 0,
+  value: false,
 };
 
 export const toggleSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1;
-    },
-    decrement: (state) => {
-      state.value - 1 === -1 ? 0 : state.value - 1;
+    handleChange: (state) => {
+      state.value = !state.value;
     },
   },
 });
 
-export const { increment, decrement } = toggleSlice.actions;
+export const { handleChange } = toggleSlice.actions;
 export default toggleSlice.reducer;
