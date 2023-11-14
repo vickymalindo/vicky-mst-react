@@ -24,6 +24,53 @@ export function CardDefault() {
     cacheTime: 0,
   });
 
+  let arr: any[] = [];
+  let dataStorage;
+  arr = [data];
+  localStorage.setItem('datas', JSON.stringify(arr));
+  localStorage.removeItem('datas');
+  localStorage.setItem('datas', JSON.stringify(arr));
+  const getStorage = localStorage.getItem('datas');
+  const parseData = JSON.parse(getStorage!);
+  console.log(parseData);
+  dataStorage = parseData[0];
+
+  // if (count === 1) {
+  //   localStorage.removeItem('datas');
+  //   localStorage.setItem('datas', JSON.stringify(arr));
+  //   const getStorage = localStorage.getItem('datas');
+  //   const parseData = JSON.parse(getStorage!);
+  //   dataStorage = parseData[0];
+  // } else {
+  //   localStorage.removeItem('datas');
+  //   arr = [data];
+  //   console.log(arr);
+  //   localStorage.setItem('data', JSON.stringify(arr));
+  //   const getStorage = localStorage.getItem('datas');
+  //   const parseData = JSON.parse(getStorage!);
+  //   dataStorage = parseData[0];
+  // }
+  // else if (count === 3) {
+  //   arr = [data];
+  //   localStorage.setItem('datasThree', JSON.stringify(arr));
+  //   const getStorage = localStorage.getItem('datasThree');
+  //   const parseData = JSON.parse(getStorage!);
+  //   dataStorage = parseData[0];
+  // } else if (count === 4) {
+  //   arr = [data];
+  //   localStorage.setItem('datasFour', JSON.stringify(arr));
+  //   const getStorage = localStorage.getItem('datasFour');
+  //   const parseData = JSON.parse(getStorage!);
+  //   dataStorage = parseData[0];
+  // } else {
+  //   arr = [data];
+  //   localStorage.setItem('datasFive', JSON.stringify(arr));
+  //   const getStorage = localStorage.getItem('datasFive');
+  //   const parseData = JSON.parse(getStorage!);
+  //   dataStorage = parseData[0];
+  // }
+  console.log(dataStorage);
+
   if (isLoading) {
     return <Loader />;
   }
@@ -34,7 +81,7 @@ export function CardDefault() {
 
   return (
     <>
-      {data?.map((val) => {
+      {dataStorage?.map((val: any) => {
         return (
           <Card className="mt-10 w-96 sm:w-64 lg:w-96" key={val.imdbID}>
             <CardHeader color="blue-gray" className="relative h-56">
