@@ -11,6 +11,8 @@ import {
 } from '@material-tailwind/react';
 import { handleChange } from '../redux/features/cartSlice';
 import { useAppDispatch } from '../redux/store';
+import { Link } from 'react-router-dom';
+import { AiOutlineCaretLeft } from 'react-icons/ai';
 
 const Cart = () => {
   const [data, setData] = React.useState<any[]>([]);
@@ -40,7 +42,14 @@ const Cart = () => {
   }
 
   return (
-    <Container className="px-5 sm:px-6 md:px-9">
+    <Container className="px-5 sm:px-6 md:px-9 mt-5">
+      <Link
+        to="/movie/home"
+        className="text-lg text-blue-400 flex items-center"
+      >
+        <AiOutlineCaretLeft className="inline-block" />
+        Go Home
+      </Link>
       <section className="flex flex-wrap justify-center md:justify-between gap-2">
         {data.length === 0 ? (
           <p>Empty Data</p>

@@ -23,10 +23,9 @@ export function CardDefault() {
     staleTime: Infinity,
     cacheTime: 0,
   });
-  // console.log(data);
 
-  // console.log(arr);
   let dataStorage;
+
   const arr = [data];
   localStorage.setItem('datas', JSON.stringify(arr));
   localStorage.removeItem('datas');
@@ -34,50 +33,6 @@ export function CardDefault() {
   const getStorage = localStorage.getItem('datas');
   const parseData = JSON.parse(getStorage!);
   dataStorage = parseData[0];
-  // if (count === 1) {
-  //   const getStorage = localStorage.getItem('datasOne');
-  //   if (getStorage === null) {
-  //     // const arr = [data];
-  //     localStorage.setItem('datasOne', JSON.stringify(data));
-  //   } else {
-  //     const parseData = JSON.parse(getStorage!);
-  //     dataStorage = parseData;
-  //   }
-  // } else if (count === 2) {
-  //   const getStorage = localStorage.getItem('datasTwo');
-  //   if (getStorage === null) {
-  //     localStorage.setItem('datasTwo', JSON.stringify(data));
-  //   } else {
-  //     const parseData = JSON.parse(getStorage!);
-  //     dataStorage = parseData[0];
-  //   }
-  // } else if (count === 3) {
-  //   const getStorage = localStorage.getItem('datasThree');
-  //   if (getStorage === null) {
-  //     localStorage.setItem('datasThree', JSON.stringify(data));
-  //   } else {
-  //     const parseData = JSON.parse(getStorage!);
-  //     dataStorage = parseData[0];
-  //   }
-  // } else if (count === 4) {
-  //   const getStorage = localStorage.getItem('datasFour');
-  //   if (getStorage === null) {
-  //     localStorage.setItem('datasFour', JSON.stringify(data));
-  //   } else {
-  //     const parseData = JSON.parse(getStorage!);
-  //     dataStorage = parseData[0];
-  //   }
-  // } else {
-  //   const getStorage = localStorage.getItem('datasFive');
-  //   if (getStorage === null) {
-  //     localStorage.setItem('datasFive', JSON.stringify(data));
-  //   } else {
-  //     const parseData = JSON.parse(getStorage!);
-  //     dataStorage = parseData[0];
-  //   }
-  // }
-
-  console.log(dataStorage);
 
   if (isLoading) {
     return <Loader />;
@@ -89,7 +44,7 @@ export function CardDefault() {
 
   return (
     <>
-      {dataStorage?.map((val: any, index: number) => {
+      {data?.map((val: any, index: number) => {
         return (
           <Card className="mt-10 w-96 sm:w-64 lg:w-96" key={val.imdbID}>
             <CardHeader color="blue-gray" className="relative h-56">
